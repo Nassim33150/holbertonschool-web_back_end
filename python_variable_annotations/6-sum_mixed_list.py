@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from typing import List, Union
 
 
@@ -5,4 +6,5 @@ from typing import List, Union
 
 
 def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
+    """Return the sum of mxd_lst"""
     return sum(mxd_lst)
