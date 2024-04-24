@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 from typing import Callable
 
 
@@ -6,7 +6,10 @@ from typing import Callable
 
 
 def make_multiplier(multiplier: float) -> Callable[[float], float]:
- 
+    """ Function that make a multiplier """
+
     def multiplier_function(x: float) -> float:
+        """ Return x * multiplier """
         return x * multiplier
+    """ Return multiplier_function """
     return multiplier_function
