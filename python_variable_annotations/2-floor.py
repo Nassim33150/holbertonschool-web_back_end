@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 import math
 
 
@@ -6,4 +6,5 @@ import math
 
 
 def floor(n: float) -> int:
+    """ Return the floor """
     return math.floor(n)
