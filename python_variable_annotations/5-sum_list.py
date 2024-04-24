@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 from typing import List
 
 
@@ -6,4 +6,5 @@ from typing import List
 
 
 def sum_list(input_list: List[float]) -> float:
+    """Return the sum of input_list."""
     return sum(input_list)
