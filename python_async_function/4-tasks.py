@@ -1,5 +1,4 @@
-#!/usr/bin/python3
-
+#!/usr/bin/env python3
 
 """ import modules """
 
@@ -21,9 +20,14 @@ except task_wait_random is being called. """
 
 
 async def task_wait_n(n: int, max_delay: int) -> List[float]:
+    """ returns the list of all the delays (float values)
+        from async task. """
     delays = []
-    for _ in range(n):
-        task = task_wait_random(max_delay)
-        await task
-        delays.append(task.result())
+
+    coroutines = [task_wait_random(max_delay) for _ in range(n)]
+
+    for coroutine in asyncio.as_completed(coroutines):
+        delay = await coroutine
+        delays.append(delay)
+
     return delays
