@@ -4,7 +4,7 @@ from pymongo import MongoClient
 
 
 def get_log_stats():
-    """ provides some stats about Nginx logs stored in MongoDB: """
+    """ provides some stats about Nginx logs stored in MongoDB:"""
     client = MongoClient('mongodb://localhost:27017')
     db = client.logs
     collection = db.nginx
