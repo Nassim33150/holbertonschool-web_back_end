@@ -2,7 +2,7 @@
 """ Import modules """
 import csv
 import math
-from typing import Dict
+from typing import Dict, List
 
 
 """ Import index_range """
@@ -43,27 +43,18 @@ class Server:
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         """ returns a dictionary containing some datas """
-         start_index, end_index = index_range(page, page_size)
-         total_pages = len(dataset) / page_size
-          dataset = self.dataset()
-        dict = {
-                "page_size" : if start_index >= len(dataset):
-                    return [],
-                else:
-                    return page_size,
-                "page" : return page,
-                "data" : if start_index >= len(dataset):                                               return []
-                else:
-                    return dataset[start_index:end_index],
-                "next_page" : if page == total_pages:
-                    next_page = None
-                else:
-                    next_page = page + 1
-                return next_page,
-                "prev_page" : if page == 1:
-                    prev_page = None
-                    else if:
-                    prev_page > 1
-                    return prev_page,
-                "total_pages" : return total_page
+        dataset = self.dataset()
+        start_index, end_index = index_range(page, page_size)
+        total_pages = math.ceil(len(dataset) / page_size)
 
+        next_page = page + 1 if page < total_pages else None
+        prev_page = page - 1 if page > 1 else None
+
+        return {
+                "page_size": len(self.get_page(page, page_size)),
+                "page": page,
+                "data": self.get_page(page, page_size),
+                "next_page": next_page,
+                "prev_page": prev_page,
+                "total_pages": total_pages
+                }
