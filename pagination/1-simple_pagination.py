@@ -4,16 +4,8 @@ import math
 from typing import List, Tuple
 
 
-def index_range(page: int, page_size: int) -> Tuple[int, int]:
-    """ function should return a tuple
-    of size two containing a start
-    index and an end index """
-    debut_index, end_index = 0, 0
-
-    if page > 0 and page_size > 0:
-        debut_index = (page - 1) * page_size
-        end_index = page * page_size
-    return debut_index, end_index
+""" Import index_range """
+index_range = __import__('0-simple_helper_function').index_range
 
 
 class Server:
@@ -36,14 +28,14 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """ find the correct indexes
-        to paginate the dataset correctly
-        and return the appropriate
-        page of the dataset """
-        assert type(page) == int and type(page_size) == int
+        """ find the correct indexes to paginate """
+        assert isinstance(page, int) and isinstance(page_size, int)
         assert page > 0 and page_size > 0
-        start_index, end_index = index_range(page=page, page_size=page_size)
+
+        start_index, end_index = index_range(page, page_size)
         dataset = self.dataset()
+
         if start_index >= len(dataset):
             return []
+
         return dataset[start_index:end_index]
