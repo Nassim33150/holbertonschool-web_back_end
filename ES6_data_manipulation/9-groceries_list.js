@@ -1,13 +1,11 @@
-export function groceriesList() {
-    const groceries = [
-        ['Apples', 10],
-        ['Tomatoes', 10],
-        ['Pasta', 1],
-        ['Rice', 1],
-        ['Banana', 5]
-    ];
+export default function groceriesList() {
+  const values = [
+    ['Apples', 10],
+    ['Tomatoes', 10],
+    ['Pasta', 1],
+    ['Rice', 1],
+    ['Banana', 5],
+  ];
 
-    const groceriesMap = new Map(groceries);
-
-    return groceriesMap;
+  return new Map(values);
 }
